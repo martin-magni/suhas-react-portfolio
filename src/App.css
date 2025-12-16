@@ -1,38 +1,364 @@
-.App {
+/* =================================
+   1. GLOBAL STYLES & VARIABLES
+   ================================= */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #343a40;
+  --background-color: #f8f9fa;
+  --text-color: #495057;
+  --card-bg: #ffffff;
+  --border-radius: 8px;
+  --spacing-large: 40px;
+  --spacing-medium: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2 {
   text-align: center;
+  margin-bottom: var(--spacing-large);
+  color: var(--secondary-color);
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main section {
+  padding: var(--spacing-large) 10%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* =================================
+   2. HEADER & NAVIGATION
+   ================================= */
+.main-header {
+  background-color: var(--card-bg);
+  color: var(--secondary-color);
+  padding: var(--spacing-medium) 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+}
+
+.navigation ul li {
+  margin-left: var(--spacing-medium);
+}
+
+.navigation ul li a {
+  color: var(--secondary-color);
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+
+/* =================================
+   3. HERO SECTION & PROFILE IMAGE (TWO-COLUMN LAYOUT)
+   ================================= */
+.hero {
+  background: var(--secondary-color);
+  color: white;
+  text-align: left;
+  padding: 80px 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.hero-two-column {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-text-content {
+    flex-basis: 65%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  color: #c9d6e4;
+  margin-bottom: var(--spacing-medium);
+}
+
+.hero .summary {
+  max-width: 600px;
+  margin-bottom: var(--spacing-medium);
+}
+
+.key-metrics span {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.cta-buttons {
+  margin-top: var(--spacing-medium);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn.primary:hover {
+  background-color: #0056b3; 
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+/* --- Profile Image Styling (Circular & Smaller) --- */
+.profile-image-container {
+    flex-basis: 40%;
+    text-align: right; 
+}
+
+.profile-image {
+    width: 300px; 
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 8px solid var(--primary-color); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =================================
+   4. CARD/LIST STYLES (EXPERIENCE, EDUCATION)
+   ================================= */
+.job-card, .education-card, .achievements-card {
+  background: var(--card-bg);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: var(--spacing-medium);
+  border-left: 5px solid var(--primary-color);
+}
+
+.job-card h3, .education-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.job-card h4, .education-card h4 {
+  color: var(--text-color);
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.job-card ul {
+  list-style: disc inside;
+  padding-left: 0;
+}
+
+.job-card ul li {
+  margin-bottom: 8px;
+}
+
+/* =================================
+   5. SKILLS SECTION
+   ================================= */
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-large);
+}
+
+.skills-group h3 {
+  color: var(--secondary-color);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.skill-category {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.skill-category h4 {
+  color: var(--primary-color);
+  width: 120px; 
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.skill-item {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+
+/* =================================
+   6. CONTACT SECTION
+   ================================= */
+.contact-details {
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.contact-info-grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-large);
+  margin-top: var(--spacing-medium);
+}
+
+.contact-info-grid h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.languages-section {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.languages-section p {
+  margin-bottom: 5px;
+}
+
+/* =================================
+   7. FOOTER
+   ================================= */
+.footer {
+  text-align: center;
+  padding: var(--spacing-medium);
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 0.8rem;
+}
+
+/* =================================
+   8. RESPONSIVENESS (Mobile devices)
+   ================================= */
+@media (max-width: 768px) {
+  /* HEADER */
+  .main-header {
+    flex-direction: column;
+    padding: 15px 5%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navigation ul {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navigation ul li {
+    margin: 5px 8px;
+  }
+
+  /* HERO (SWITCHES TO STACKED LAYOUT) */
+  .hero-two-column {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero .tagline {
+    font-size: 1rem;
+  }
+  
+  .profile-image-container {
+    flex-basis: auto;
+    margin-bottom: var(--spacing-medium);
+    text-align: center;
+  }
+
+  .hero-text-content {
+    flex-basis: auto;
+  }
+  
+  /* CONTACT */
+  .contact-info-grid {
+    flex-direction: column;
+    gap: var(--spacing-medium);
   }
 }
