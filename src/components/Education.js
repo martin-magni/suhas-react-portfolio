@@ -10,14 +10,13 @@ function Education() {
         <h4>Srinivas University, Bangalore, IND</h4>
         <p>Specialization: Cyber Security</p>
         <p>Expected Graduation: August, 2026</p>
-        <p>Academic Standing: **8.33 CGPA** (through the 4th semester)</p>
+        <p>Academic Standing: 8.58 CGPA (through the 4th semester)</p>
       </div>
 
       <div className="education-card">
         <h3>Pre-University Course (2nd PUC / 12th)</h3>
         <h4>Vidya Junior College, Chittoor, IND</h4>
         <p>Subjects: Physics, Chemistry, Mathematics (PCM)</p>
-        <p>Percentage: 63.20%</p>
       </div>
 
       <div className="achievements-card">
