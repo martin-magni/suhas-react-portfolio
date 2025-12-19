@@ -17,7 +17,7 @@ function Hero() {
             </p>
             <div className="key-metrics">
               <span>
-                <strong>CGPA:</strong> 8.33 (through 4th semester)
+                <strong>CGPA:</strong> 8.58 (through 4th semester)
               </span>
               <span>
                 <strong>Specialization:</strong> Cyber Security
